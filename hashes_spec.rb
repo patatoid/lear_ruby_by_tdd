@@ -99,7 +99,7 @@ RSpec.describe "Hashes" do
 
     it "should have 'alphabet' as described" do
       26.times do |i|
-        expect(alphabet[('a'..'z').to_a[i]]).to eq(i+1)
+        expect(alphabet[('a'..'z').to_a[i]]).to eq(i + 1)
       end
     end
   end
@@ -115,6 +115,7 @@ RSpec.describe "Hashes" do
           expect(tree[i][j].keys).to eq((1..5).to_a)
           (1..5).to_a.each do |k|
             expect(tree[i][i][k].keys).to eq((1..5).to_a)
+            expect(tree[i][i][k].values).to eq(Array.new(5))
           end
         end
       end
