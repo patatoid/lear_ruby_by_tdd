@@ -139,11 +139,17 @@ RSpec.describe "Arrays" do
     end
 
     context "I want to have an array of even elements of 'a' and modify 'a'" do
-      before do
-        a.reject!(&:odd?)
-      end
+      let(:just_even) {}
 
       it "should have 'just_even' with only even elements of 'a'" do
+        50.times do |i|
+          expect(just_even[i]).to eq(i * 2)
+          expect(a[i]).to eq(i * 2)
+        end
+      end
+
+      it "should have 'a' modified" do
+        just_even
         50.times do |i|
           expect(a[i]).to eq(i * 2)
         end
@@ -180,7 +186,7 @@ RSpec.describe "Arrays" do
     end
   end
 
-  # And so on see https://ruby-doc.org/core-1.9.3/Range.html to go further
+  # And so on see https://ruby-doc.org/core-1.9.3/Array.html to go further
   # now FizzBuzz exercise !
 
   context "I want to fizz buzz on first 100 numbers" do
